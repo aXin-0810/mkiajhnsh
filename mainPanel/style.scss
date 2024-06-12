@@ -1,0 +1,188 @@
+.mainPanelSetShell {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  .mainPanelViewStyle {
+    .mainPanelStyle {
+      box-sizing: border-box;
+      background: #f6f6f6;
+      overflow: hidden;
+      position: relative;
+      .basisStyle {
+        display: inline-block;
+        -webkit-user-select: none;
+        box-sizing: border-box;
+        /** 被此样式定义的元素无法获取指针，不能在这些元素上绑定事件 **/
+        img,
+        video,
+        audio,
+        svg {
+          pointer-events: none !important;
+        }
+        .aBorderStyle {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          z-index: 9999999;
+          pointer-events: none;
+        }
+      }
+    }
+    // 不同状态下高亮样式
+    .currentBorder {
+      box-sizing: border-box;
+      -moz-box-shadow: 0px 0px 8px #05d2f4;
+      -webkit-box-shadow: 0px 0px 8px #05d2f4;
+      box-shadow: 0px 0px 8px #05d2f4;
+    }
+    .sameGroup {
+      box-sizing: border-box;
+      -moz-box-shadow: 0px 0px 8px #05d2f4;
+      -webkit-box-shadow: 0px 0px 8px #05d2f4;
+      box-shadow: 0px 0px 8px #05d2f4;
+    }
+    .hiddenComponent {
+      pointer-events: none !important;
+      opacity: 0 !important;
+    }
+    // 高亮框动画
+    .highlightBoxTransition {
+      transition: transform 0.5s, left 0.5s, top 0.5s, right 0.5s, bottom 0.5s;
+    }
+    // 旋转
+    .rotatingNode {
+      width: 18px;
+      height: 18px;
+      border-radius: 9px;
+      position: absolute;
+      z-index: 999999;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -160%);
+      background: #ffffff;
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADA0lEQVRYR+2WQUhUURSG/zPDQ1tMC6NFYYtKSr33jQy2sUUl7l0ERlAULjJKorJF5abaJLSICgwSg7IWkbtqExTWItwUMr57YwyjoKhFVOCmZHz+cUNjynHeGydw44HHbM4997v/OXPOESyzyTLfjxWAshRIp9MbwzBsE5F9JNeLyDoAPwFYkm8AZAHcs9Z+i5vaWAC+7zfPzs52iUgXgC8AhklaAB8BeCJST7JRRHaQTDgIAEPWWgdU0iIBtNZnAVwE8Jbk5enp6ZuTk5PTxaLW19ev8TzvAMmDAGpJ9lhrh0oRlATQWp8HcM692PO87rGxMff6WKa1vgbgGIBeY0zfYocWBfB9v4PkfQAXjDEOpGzzfb+L5A0R2U6yCsCIMeavO4sCuJyTfCkiV4IgOFn2zQUHlFJ9InIGQGtsAKWUo27zPK+lHNmLgTY0NKxLJpOPAeQAdEQq0NTUtCUMwwmS3dba65W8fq6Gds7F2OV+IwG01qdc4aRSqdrR0dEf/xHAhXptjOkujLmgBrTWIwAmjTGHKrk87tkFAEqpCQBXK5V/yQBa6ymS+621D+IGieOntXY10GOMaY9KQb9rPMaYZ3ECx/VRSrWLyF1jzOqSAHEDluunlDoK4Li1duuyAGitnbKNxhjXkP5YsX+By32qwOf5UlvxfIy6urqq6urqDyR7rbWDUQCcc5ivgYoBnPwi0p9IJDaNj4+/iwPwhGRdGIatuVzufbn5LvTPZDJr8/n8KMmn1trD/8YqlgKnwO/BQfKWtbazEgCttZuoHSKyLQiCV+UAbHBbjYhcCoLg9FIgCvaJRXeCqIXkCAA3kAbLac1O9pmZmV6SJ6L2iciVzPd9t+fdAfBdRG7n8/mhXC73tZgiLS0tq6ampjpFpAfAZhHZEwTBcCn1IgHc4XQ6rcMwdLWwV0RmAbxwAwtAQNJNzFoRyQDYDaCG5EAikRgolvPIGihFq5SqmYNoBuA6mvuqSH4WkU8AHiWTyYfZbNat6LEslgKxIi3RaQVg2RX4BdisQTCQPZRNAAAAAElFTkSuQmCC');
+      background-size: 100%;
+      background-position: center;
+      box-sizing: border-box;
+      -moz-box-shadow: 0px 0px 8px #05d2f4;
+      -webkit-box-shadow: 0px 0px 8px #05d2f4;
+      box-shadow: 0px 0px 8px #05d2f4;
+    }
+    // 四边拉伸
+    .topBorder,
+    .rightBorder,
+    .bottomBorder,
+    .leftBorder,
+    .topRightAngle,
+    .topLeftAngle,
+    .bottomRightAngle,
+    .bottomLeftAngle {
+      width: 8px;
+      height: 8px;
+      position: absolute;
+      z-index: 999999;
+    }
+    .seResize {
+      cursor: se-resize;
+    }
+    .neResize {
+      cursor: ne-resize;
+    }
+    .sResize {
+      cursor: s-resize;
+    }
+    .wResize {
+      cursor: w-resize;
+    }
+    .topBorder {
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .bottomBorder {
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 50%);
+    }
+    .rightBorder {
+      top: 50%;
+      right: 0;
+      transform: translate(50%, -50%);
+    }
+    .leftBorder {
+      top: 50%;
+      left: 0;
+      transform: translate(-50%, -50%);
+    }
+    .topRightAngle {
+      top: 0px;
+      right: 0px;
+      transform: translate(50%, -50%);
+    }
+    .topLeftAngle {
+      top: 0px;
+      left: 0px;
+      transform: translate(-50%, -50%);
+    }
+    .bottomRightAngle {
+      bottom: 0px;
+      right: 0px;
+      transform: translate(50%, 50%);
+    }
+    .bottomLeftAngle {
+      bottom: 0px;
+      left: 0px;
+      transform: translate(-50%, 50%);
+    }
+    // 对齐线
+    .topAlignment,
+    .leftAlignment {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      z-index: 9999999;
+      pointer-events: none;
+    }
+    .topAlignment {
+      width: calc(100% + 1920px) !important;
+      border-left: 0 !important;
+      border-right: 0 !important;
+      border-bottom: 0 !important;
+      left: 50%;
+    }
+    .leftAlignment {
+      height: calc(100% + 1920px) !important;
+      border-right: 0 !important;
+      border-top: 0 !important;
+      border-bottom: 0 !important;
+      top: 50%;
+    }
+    .alignmentLineClass {
+      border: 1px dashed #05d2f4;
+    }
+    .angleShowsView {
+      width: 46px;
+      height: 24px;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.5);
+      font-size: 14px;
+      color: #fff;
+      line-height: 24px;
+      text-align: center;
+    }
+    .angleShowsLocation {
+      position: absolute;
+      transform: translateY(-50%);
+      z-index: 9999999999;
+    }
+    .lockCoilBoxClass {
+      position: absolute;
+      border: 1px solid #05d2f4;
+      z-index: 9999999999999;
+    }
+  }
+}
